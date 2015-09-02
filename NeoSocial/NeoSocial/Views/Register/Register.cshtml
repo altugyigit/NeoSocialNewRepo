@@ -1,0 +1,105 @@
+﻿@model NeoSocial.ViewModels.ViewModel
+
+@{
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kayıt</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7; IE=EmulateIE9">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    
+</head>
+<body>
+     @using (Html.BeginForm("Register","Register",FormMethod.Post)){
+         
+         @Html.AntiForgeryToken();
+          
+          
+<div class="container">
+			<header>
+            </header>       
+     
+      <div  class="form">
+    		<form id="contactform"> 
+    			 @Html.Label("Name")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.register.Name, new {@class="form-control" } )<br />
+  
+                @Html.Label("Surname")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.register.Surname, new {@class="form-control" } )<br />
+    			
+    			 @Html.Label("Email")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.register.Email, new {@class="form-control", type = "email" })<br />
+                 
+               @Html.Label("User Name")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.login.UserName, new {@class="form-control" } )<br />
+    			
+                @Html.Label("Password")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.login.UserPassword, new {@class="form-control",type="password" } )<br />
+
+
+                   @Html.Label("Again Password")<br /><br />
+
+                 @Html.TextBox("repassword","", new {@class="form-control",type="password" })<br />
+
+
+                 @Html.Label("Birth Date")<br /><br />
+
+                 @Html.TextBoxFor(model=>model.register.BirthDate, new { @class="form-control",type="date" })<br />
+                
+
+                 @Html.Label("Gender")<br /><br />
+             @Html.DropDownListFor(model=>model.register.Gender,new SelectList( new List<Object>{ 
+                       new { value = 0 , text = "Famale"  },
+                       new { value = 1 , text = "Male" }
+                      
+                    },
+                  "value",
+                  "text",
+                     2),new { @class="form-control"})<br /><br />
+
+
+            
+               @Html.LabelFor(model=>model.country.CountryName)<br /><br />
+               @Html.DropDownListFor(model=>model.register.CountryID,new SelectList((System.Collections.IEnumerable) ViewData["country"], "CountryID", "CountryName"),new { @class="form-control"})<br /><br />
+               
+               
+                 
+                
+                <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign Up" type="submit"  > 	 
+
+                @if(TempData["true"]!=null) {
+                    <script type="text/javascript">
+                        alert("@TempData["true"]");
+
+                      </script>
+                 
+                }
+                @if(TempData["false"]!=null) {
+                <script type="text/javascript">
+                    alert("@TempData["false"]");
+                      </script>
+                }
+   </form> 
+     
+             
+                                  
+
+</div>
+    </div>
+     }
+    
+    
+
+</body>
+</html>

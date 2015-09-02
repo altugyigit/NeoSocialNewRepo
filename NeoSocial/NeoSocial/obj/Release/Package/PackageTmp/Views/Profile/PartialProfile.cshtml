@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+@using NeoSocial.Database.Models;
+@using NeoSocial.Business;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PartialProfile</title>
+</head>
+<body>
+    <div>
+        @{ 
+                try
+                {
+                var postDatabaseList = (List<ArticlePost>)ViewData["postDatabase"];
+
+                    int countList = postDatabaseList.Count();
+    
+                    if(countList == 0)
+                    {
+                        // http://www.icons-land.com
+                        <img alt="Unfortunatly" src="~/Content/Image/sad.png" style="float:left; padding-right:8px;" /> 
+                         <h3>Unfortunatially, there is nothing to show. @Session["UserId"]</h3>
+                    }
+                    else
+                    {
+     
+                            foreach(var post in postDatabaseList)
+                        {
+                            <div class="postTemplate">
+                                <img id="avatarImg" src=@ViewData["pathImage"] />
+                                <div class="postContent">
+                                    <h2 id="postHeaderText">@post.PostHeader - @post.PostDate</h2>                    
+                                    @Html.TextArea("postContentTextArea",post.PostContent,2,2 , new {@id="postContentTextArea", @readonly = true})
+                                    <br />       
+                                    <h4 class="likecomclass"><!--http://www.iconsmind.com --><img id="likeIcon" src="/Content/Image/like.png" /> Like : @post.PostLikeCount || <!-- http://icons8.com --><img id="commentIcon" src="/Content/Image/comment.png" /> Comment : @post.PostCommentID</h4>     
+                                </div>  
+                            </div>
+                            <br />
+                        } 
+           
+                    }
+                    }
+                    catch(Exception ex)
+                    {
+                        
+                    }
+            }
+    </div>
+</body>
+</html>

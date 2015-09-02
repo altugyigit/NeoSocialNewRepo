@@ -1,0 +1,12 @@
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\NeoSocial.Business.dll.config
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\NeoSocial.Business.dll
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\NeoSocial.Business.pdb
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\NeoSocial.Database.dll
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\EntityFramework.dll
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\NeoSocial.Database.pdb
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\EntityFramework.xml
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\obj\Release\NeoSocial.Business.csprojResolveAssemblyReference.cache
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\obj\Release\NeoSocial.Business.dll
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\obj\Release\NeoSocial.Business.pdb
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Neo_Edirne1\Downloads\NeoSocialRepo-master\NeoSocialRepo-master\NeoSocial\NeoSocial.Business\bin\Release\EntityFramework.SqlServer.xml

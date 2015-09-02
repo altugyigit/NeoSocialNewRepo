@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.Entity;
+using NeoSocial.Database.Models;
+
+namespace NeoSocial.Database.Repository
+{
+    public interface IFollower : IRepository<Follower>
+    { }
+
+    public class FollowerRepository : Repository<Follower>, IFollower
+    {
+        public FollowerRepository(DbContext dbContext)
+            : base(dbContext)
+        { }
+    }
+}

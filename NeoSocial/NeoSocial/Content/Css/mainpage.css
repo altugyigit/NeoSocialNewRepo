@@ -1,0 +1,140 @@
+﻿body 
+{
+    font-family:Tahoma;
+    background-image: url(/Content/Image/bckmain.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-position:center;
+    text-align:left;
+}
+header 
+{
+    
+    position:fixed;
+    float:left;
+    height:640px;
+    width:20%;
+    border-radius:20px 20px;
+    margin-left:0px;
+}
+#menu 
+{
+    text-align:center;
+}
+.btn 
+{
+  margin-top:3%;
+  border: 2px solid transparent;
+  background: rgba(93, 191, 255, 0.82);
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 25px;
+  text-align:center;
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 20px;
+  box-shadow: none;
+  transition: 0.25s;
+  display: block;
+  width: 100%;
+  height:2%;
+}
+
+.btn:hover 
+{
+  background-color: #2980B9;
+}
+
+#content
+{
+    
+    float:right;
+    height:auto;
+    width:75%;
+    /*background-color: rgba(255, 255, 255, 0.68);*/
+    /*border: 5px solid rgba(0, 148, 255, 0.77);*/
+    border-radius:20px 20px;
+    margin-right:0px;    
+}
+.postTemplate
+{
+    width:auto;
+    margin-left:2%;
+    margin-right:2%;
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius:20px 20px;
+    
+}
+.postContent 
+{
+    margin-left:2%;
+    width:auto;
+}
+#postOwnerText 
+{
+    border:0;
+    background:rgba(255, 255, 255, 0.00);
+    padding-top:3px;
+    font-size:large;
+}
+#postOwnerText focus 
+{
+    border:0;
+}
+#postHeaderText 
+{
+    font-size:medium;
+}
+#postHeaderText:focus 
+{
+    border:0;
+}
+#postContentTextArea 
+{
+    border:0;
+    background:rgba(255, 255, 255, 0.00);
+    width:60%;
+    height:70px;
+    max-width:60%;
+    max-height:100px;
+    font-size:medium;
+    font-style:normal;
+    font-weight:normal;
+}
+#avatarImg 
+{
+    margin-bottom:1%;
+    margin-top:1%;
+    margin-right:1%;
+    margin-left:1%;
+    float:left;
+    width:10%;
+}
+
+#likeIcon 
+{
+   width:32px;
+   height:32px;
+}
+
+#commentIcon
+{
+   width:32px;
+   height:32px;
+}
+
+#likeIcon:hover 
+{
+    background: url(/Content/Image/likeblue.png) no-repeat;
+}
+
+#commentIcon:hover 
+{
+    background: url(/Content/Image/commentblue.png) no-repeat;
+}
+
+.likecomclass 
+{
+    font-family:'Lucida Handwriting';
+}

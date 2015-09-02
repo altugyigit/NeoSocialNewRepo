@@ -1,0 +1,30 @@
+﻿@model NeoSocial.ViewModels.ViewModel
+@{
+    
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PartialShareArticle</title>
+</head>
+<body>
+    
+    <div id="shareform">
+        @using(Html.BeginForm("PartialShareArticle", "Profile", FormMethod.Post))
+        {
+        
+            @Html.TextBoxFor(a => a.article.PostHeader, new { @maxlength="100", @class="txtShare",  @required = "required", placeholder="Header"})
+            <br />
+            @Html.TextAreaFor(a => a.article.PostContent, new {@maxlength="3000", @class="txtShareArea",  @required = "required", placeholder="Type ..." })
+            <br />
+            
+            <input type="submit" class="btnShare" value="Share"/>
+        
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoSocial", "NeoSocial\NeoSocial.csproj", "{1F1867EF-300A-4BDB-9386-BFC43D05432E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoSocial.Business", "NeoSocial.Business\NeoSocial.Business.csproj", "{F16FB5DA-E3AC-43B6-8F72-110EB7FD9D78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoSocial.Database", "NeoSocial.Database\NeoSocial.Database.csproj", "{5E6BF755-AB50-4CCE-BB1E-9FC83DFFC69C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F1867EF-300A-4BDB-9386-BFC43D05432E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1867EF-300A-4BDB-9386-BFC43D05432E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1867EF-300A-4BDB-9386-BFC43D05432E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1867EF-300A-4BDB-9386-BFC43D05432E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16FB5DA-E3AC-43B6-8F72-110EB7FD9D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16FB5DA-E3AC-43B6-8F72-110EB7FD9D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16FB5DA-E3AC-43B6-8F72-110EB7FD9D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16FB5DA-E3AC-43B6-8F72-110EB7FD9D78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E6BF755-AB50-4CCE-BB1E-9FC83DFFC69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6BF755-AB50-4CCE-BB1E-9FC83DFFC69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6BF755-AB50-4CCE-BB1E-9FC83DFFC69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6BF755-AB50-4CCE-BB1E-9FC83DFFC69C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

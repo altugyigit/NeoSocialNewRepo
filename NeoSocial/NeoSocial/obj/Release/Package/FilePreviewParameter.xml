@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="neosinerji-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Neo_Edirne1\\Downloads\\NeoSocialRepo-master\\NeoSocialRepo-master\\NeoSocial\\NeoSocial\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Neo_Edirne1\\Downloads\\NeoSocialRepo-master\\NeoSocialRepo-master\\NeoSocial\\NeoSocial\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DB_9D589F_neosocialContext-Web.config Connection String" description="" value="Data Source=SQL5014.Smarterasp.net;Initial Catalog=DB_9D589F_neosocial;Persist Security Info=True;User ID=DB_9D589F_neosocial_admin;Password=mertaltug1993;MultipleActiveResultSets=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Neo_Edirne1\\Downloads\\NeoSocialRepo-master\\NeoSocialRepo-master\\NeoSocial\\NeoSocial\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DB_9D589F_neosocialContext']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Css/mainpage.css" />
+</head>
+<body>
+    <header>
+        @RenderSection("Header", false)        
+        <div id="menu">
+            @Html.ActionLink("Profile", "Profile", "Profile",null, new { @class="btn" })
+            @Html.ActionLink("Share Article","Profile", "Profile",null, new { @class="btn" })     
+            @Html.ActionLink("Log Out", "LogOut", "User", null, new { @class="btn" })        
+        </div>
+    </header>
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>

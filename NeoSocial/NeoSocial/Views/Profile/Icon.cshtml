@@ -1,0 +1,42 @@
+﻿@model NeoSocial.ViewModels.ViewModel
+
+@{
+    ViewBag.Title = "Icon";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Icon</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Css/styleicon.css" />
+	
+</head>
+
+<body>	
+
+      @using (Html.BeginForm("Icon","Profile",FormMethod.Post)){
+         
+         @Html.AntiForgeryToken();
+          
+   
+
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 1, new { @id="icon1" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale2.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 2, new { @id="icon2" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale3.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 3, new { @id="icon3" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale4.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 4, new { @id="icon4" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale5.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 5, new { @id="icon5" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconFamale6.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 6, new { @id="icon6" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 7, new { @id="icon7" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale2.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 8, new { @id="icon8" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale3.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 9, new { @id="icon9" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale4.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 10, new { @id="icon10" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale5.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 11, new { @id="icon11" }) 
+          <img src= "@Url.Content("~/Content/Image/Icons/iconMale6.gif")" alt="Image" />  @Html.RadioButtonFor(model => model.profile.IconID, 12, new { @id="icon12" }) 
+          
+
+      <input class="buttom" name="submit" id="submit" tabindex="5" value="Choose" type="submit"  > 	 
+      
+      }
+    </body>
+    </html>

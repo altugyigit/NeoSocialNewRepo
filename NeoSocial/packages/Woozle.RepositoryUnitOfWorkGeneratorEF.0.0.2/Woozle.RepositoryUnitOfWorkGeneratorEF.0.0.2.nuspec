@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Woozle.RepositoryUnitOfWorkGeneratorEF</id>
+    <version>0.0.2</version>
+    <title>Woozle Repository and Unit of Work Generator for Entity Framework</title>
+    <authors>Patrick Roos, Andreas Schuermann</authors>
+    <owners>Patrick Roos, Andreas Schuermann</owners>
+    <projectUrl>https://github.com/fingersteps/woozle.generators</projectUrl>
+    <iconUrl>http://fingersteps.ch/img/woozle.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>The woozle entity framework repository and unit of work generator creates repository and unit of work classes of your edmx model which can be used to perform database operations. The generator includes additional features such as including additional features such as synchronizing an object to the entity framework context including all navigation properties.</description>
+    <tags>Business Framework Repository Unit of work generator EF EntityFramework</tags>
+    <references />
+  </metadata>
+</package>

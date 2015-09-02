@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Css/style.css" />
+</head>
+<body>
+    <header>
+        @RenderSection("Header", false)        
+        <div id="menu">
+            <ul>
+                <li><b>@Html.ActionLink("Anasayfa","MainPage", "Main")</b></li>
+                <li><b>@Html.ActionLink("Yazılar","Index", "Home")</b></li>
+                <li><b>@Html.ActionLink("Sisteme Giriş","Login", "User")</b></li>
+                <li><b>@Html.ActionLink("Log Out", "LogOut", "User")</b></li>
+            </ul>
+        </div>
+    </header>
+    <div id="content">
+        @RenderBody()
+    </div>
+    <footer>
+        @RenderSection("Footer", false)
+    </footer>
+</body>
+</html>

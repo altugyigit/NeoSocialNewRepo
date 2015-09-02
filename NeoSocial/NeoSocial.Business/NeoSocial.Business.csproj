@@ -46,21 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CountryBusiness.cs" />
-    <Compile Include="IconBusiness.cs" />
-    <Compile Include="ICountryBusiness.cs" />
-    <Compile Include="IIconBusiness.cs" />
-    <Compile Include="ILoginBusiness.cs" />
-    <Compile Include="IMailBusiness.cs" />
-    <Compile Include="IPostBusiness.cs" />
-    <Compile Include="IProfileBusiness.cs" />
-    <Compile Include="IRegisterBusiness.cs" />
-    <Compile Include="LoginBusiness.cs" />
-    <Compile Include="MailBusiness.cs" />
-    <Compile Include="PostBusiness.cs" />
-    <Compile Include="ProfileBusiness.cs" />
+    <Compile Include="ServiceClass\CountryBusiness.cs" />
+    <Compile Include="ServiceInterface\IconBusiness.cs" />
+    <Compile Include="ServiceInterface\ICountryBusiness.cs" />
+    <Compile Include="ServiceInterface\IIconBusiness.cs" />
+    <Compile Include="ServiceInterface\ILoginBusiness.cs" />
+    <Compile Include="ServiceInterface\IMailBusiness.cs" />
+    <Compile Include="ServiceInterface\IPostBusiness.cs" />
+    <Compile Include="ServiceInterface\IProfileBusiness.cs" />
+    <Compile Include="ServiceInterface\IRegisterBusiness.cs" />
+    <Compile Include="ServiceClass\LoginBusiness.cs" />
+    <Compile Include="ServiceClass\MailBusiness.cs" />
+    <Compile Include="ServiceClass\PostBusiness.cs" />
+    <Compile Include="ServiceClass\ProfileBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterBusiness.cs" />
+    <Compile Include="ServiceClass\RegisterBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeoSocial.Database\NeoSocial.Database.csproj">

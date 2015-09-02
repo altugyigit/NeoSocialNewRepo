@@ -83,6 +83,8 @@ namespace NeoSocial.Controllers
             }
 
             ViewData["country"] = _countryBusiness.getAllCountry();*/
+
+            return View();
         }
        
 

@@ -52,36 +52,32 @@ namespace NeoSocial.Controllers
 
           
 
-            Session["UserId"] = _loginBusiness.findUserIdByName(HttpContext.User.Identity.Name.ToString(),_userLogin);
+            Session["UserId"] = _loginBusiness.findUserIdByName(HttpContext.User.Identity.Name.ToString());
 
             return Redirect("~/Main/MainPage");
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(ViewModel viewModel)
+        public ActionResult Login(LoginModel loginModel)
         {
-          
 
-            string _userName = viewModel.login.UserName.ToString();
-            string _userPassword = viewModel.login.UserPassword.ToString();
-            int _userId = _loginBusiness.verifyUser(viewModel.login);
+              int _userId = _loginBusiness.verifyUser(loginModel.UserName, loginModel.UserPassword);
 
-            if (ModelState.IsValid && _userId != -1)
-            {
-                FormsAuthentication.SetAuthCookie(_userName, true);
-                Session["UserName"] = _userName;
-                Session["Password"] = _userPassword;
-                Session["UserId"] = _userId;
+              if (ModelState.IsValid && _userId != -1)
+              {
+                  FormsAuthentication.SetAuthCookie(loginModel.UserName, true);
+                  Session["UserId"] = _userId;
 
-                return Redirect("~/Main/MainPage");
-            }
-            else
-            {
-                ModelState.AddModelError( "", "Kullanıcı Adı yada Parola Hatalı !");
-            }
-            return View(viewModel);
-            
+                  return Redirect("~/Main/MainPage");
+              }
+              else
+              {
+                  ModelState.AddModelError( "", "Kullanıcı Adı yada Parola Hatalı !");
+              }
+
+
+             return View(loginModel);
         }
 
         [Authorize]
@@ -101,9 +97,9 @@ namespace NeoSocial.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult ForgotPassword(Mail mail)
+        public ActionResult ForgotPassword(MailModel mailModel)
         {
-           
+           /*
            _userRegister.Email=mail.ToEmail;
 
           list=  _registerBusiness.findID(_userRegister);
@@ -114,7 +110,7 @@ namespace NeoSocial.Controllers
         mail.Subject = "Şifre";
         mail.Message = list2[0].UserPassword;
 
-        _mailBusiness.sendMail(mail);
+        _mailBusiness.sendMail(mail);*/
 
             return View();
         }

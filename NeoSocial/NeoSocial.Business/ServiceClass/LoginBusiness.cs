@@ -10,9 +10,7 @@ using NeoSocial.Business;
 
 
 namespace NeoSocial.Business
-{
-   
-
+{   
   public  class LoginBusiness :ILoginBusiness
 {
 

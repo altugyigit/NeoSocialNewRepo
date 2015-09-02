@@ -19,9 +19,6 @@ namespace NeoSocial.Controllers
         ICountryBusiness _countryBusiness;
         ProfileModel _profileModel;
 
-        int _iconId;
-        static int _followMeProfileId;
-
         public ProfileController(ProfileModel profileModel)
         {
                 _countryBusiness = DependencyResolver.Current.GetService<ICountryBusiness>();
@@ -39,16 +36,27 @@ namespace NeoSocial.Controllers
         [Authorize]
         public ActionResult Profile()
         {
-            _profileModel.CurrentUserID = (int)Session["userId"];
-            _profileModel.UserRegisterID = _loginBusiness.findRegisterIdByUserId(_profileModel.CurrentUserID);
+            try
+            {
+                _profileModel.CurrentUserID = (int)Session["userId"];
+                _profileModel.UserRegisterID = _loginBusiness.findRegisterIdByUserId(_profileModel.CurrentUserID);
 
-            _profileModel.Name = _registerBusiness.findById(_profileModel.UserRegisterID).Name;
-            _profileModel.Surname = _registerBusiness.findById(_profileModel.UserRegisterID).Surname;
-            _profileModel.CountryName = _countryBusiness.getCountryById((int)(_registerBusiness.findById(_profileModel.UserRegisterID).CountryID));
-                
-            _profileModel.IconUrl = _iconBusiness.getIconUrl((int)_profileBusiness.getProfileInfo(_profileModel.CurrentUserID).IconID);
+                _profileModel.Name = _registerBusiness.findById(_profileModel.UserRegisterID).Name;
+                _profileModel.Surname = _registerBusiness.findById(_profileModel.UserRegisterID).Surname;
+                _profileModel.CountryName = _countryBusiness.getCountryNameById((int)(_registerBusiness.findById(_profileModel.UserRegisterID).CountryID));
 
-            return View(_profileModel);
+                _profileModel.IconUrl = _iconBusiness.getIconUrl((int)_profileBusiness.getProfileInfo(_profileModel.CurrentUserID).IconID);
+
+                _profileModel.SharingsCount = _postBusiness.getUserArticlePost(_profileModel.CurrentUserID).Count;
+                _profileModel.FollowersCount = _profileBusiness.getAllFollowerByProfileId(_profileBusiness.getProfileId(_profileModel.CurrentUserID)).Count;
+
+                return View(_profileModel);
+            }
+            catch(Exception ex)
+            {
+                return View(new ProfileModel());
+            }
+            
         }
         [Authorize]
         [HttpGet]
@@ -83,8 +91,8 @@ namespace NeoSocial.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Icon(ViewModel model)
-        {
+        public ActionResult Icon(String denemetest)
+        {/*
               int userId = (int)Session["UserId"];
            
             
@@ -96,61 +104,52 @@ namespace NeoSocial.Controllers
             
 
             _profileBusiness.updateIcon(_userProfile);
-           
+           */
             return View();
         }
 
         public ActionResult OtherProfile(int userId)
-        {
-            
-            ViewData["userId"] = userId;
-            _userId = userId;
-
-        
-
-            _userProfile = _profileBusiness.getProfileInfo(userId);
-
-            _followMeProfileId = _userProfile.UserProfileID;
-            ViewData["followProfileId"] = _followMeProfileId;
-
-            int _registerId = (int)_userProfile.UserRegisterID;
-            int _iconId = (int)_userProfile.IconID;
-
-            _userRegister = _registerBusiness.findById(_registerId);
-
-            string _userRegisterName = _userRegister.Name;
-            string _userRegisterSurname = _userRegister.Surname;
-
+        {          
             try
             {
-                ViewData["registerName"] = _userRegisterName;
-                ViewData["registerSurname"] = _userRegisterSurname;
-                ViewData["pathImage"] = _iconBusiness.getIconUrl(_iconId);
-                ViewData["postDatabase"] = _postBusiness.getUserArticlePost(userId);
+                _profileModel.CurrentUserID = userId;
+                _profileModel.UserRegisterID = _loginBusiness.findRegisterIdByUserId(_profileModel.CurrentUserID);
+
+                _profileModel.Name = _registerBusiness.findById(_profileModel.UserRegisterID).Name;
+                _profileModel.Surname = _registerBusiness.findById(_profileModel.UserRegisterID).Surname;
+                _profileModel.CountryName = _countryBusiness.getCountryNameById((int)(_registerBusiness.findById(_profileModel.UserRegisterID).CountryID));
+
+                _profileModel.IconUrl = _iconBusiness.getIconUrl((int)_profileBusiness.getProfileInfo(_profileModel.CurrentUserID).IconID);
+
+                _profileModel.SharingsCount = _postBusiness.getUserArticlePost(_profileModel.CurrentUserID).Count;
+                _profileModel.FollowersCount = _profileBusiness.getAllFollowerByProfileId(_profileBusiness.getProfileId(_profileModel.CurrentUserID)).Count;
+
+                return View(_profileModel);
             }
             catch (Exception ex)
             {
+                return View(new ProfileModel());
             }
-
-            return View();
+           
         }
 
         public ActionResult FollowMe() 
         {
-         
-            _viewModel.follower.ProfileID = _followMeProfileId;
-            _viewModel.follower.UserID = (int)Session["UserId"];
+
+            /* _viewModel.follower.ProfileID = _followMeProfileId;
+             _viewModel.follower.UserID = (int)Session["UserId"];
 
 
 
           
-            _profileBusiness.insertFollower(_viewModel.follower);
-
-            return Redirect("~/Profile/OtherProfile?userId="+_userId);
+             _profileBusiness.insertFollower(_viewModel.follower);
+             return Redirect("~/Profile/OtherProfile?userId="+_userId);
+             */
+            return Redirect("~/Profile/OtherProfile");
         }
 
         public ActionResult Unfollow() {
-
+            /*
           
             _viewModel.follower.ProfileID = _followMeProfileId;
             _viewModel.follower.UserID = (int)Session["UserId"];
@@ -159,8 +158,9 @@ namespace NeoSocial.Controllers
             _viewModel.follower.FollowerID = _profileBusiness.checkFollower(_viewModel.follower);
             _profileBusiness.deleteFollower(_viewModel.follower);
 
-            return Redirect("~/Profile/OtherProfile?userId=" + _userId);
-        
+            return Redirect("~/Profile/OtherProfile?userId=" + _userId);*/
+
+            return Redirect("~/Profile/OtherProfile");
         }
     }
 }

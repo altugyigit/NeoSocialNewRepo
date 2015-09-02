@@ -2,9 +2,8 @@
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
     ViewBag.Title = "Profile";
 }
-@using NeoSocial.Database.Models;
-@using NeoSocial.Business;
-@using NeoSocial.ViewModels;
+
+@model NeoSocial.ViewModels.ProfileModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,78 +28,31 @@
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="Icon"><img src=@ViewData["pathImage"] width="150" height="150" /></a>
+					<a href="Icon"><img src=@Model.IconUrl width="150" height="150" /></a>
 				</div>
 				
 				<div class="data">
-                    @{
-                        LoginBusiness _loginBusiness = new LoginBusiness();
-                      //  int _registerId = _loginBusiness.findRegisterIdByUserId((int)Session["userId"]);
-                        
-                        RegisterBusiness _registerBusiness = new RegisterBusiness();
-                        
-                        ViewModel _viewModel = new ViewModel();
-                      //  _viewModel.register = _registerBusiness.findById(_registerId);
-                        
-                        
-					<h1>@_viewModel.register.Name @_viewModel.register.Surname</h1>
-					<h3>EDİRNE</h3>
-					}
+
+					<h1>@Model.Name @Model.Surname</h1>
+					<h3>@Model.CountryName</h3>
+
                     <div class="socialMediaLinks">
 						
 					</div>
 					<div class="sep"></div>
 					<ul class="numbers clearfix">
-						<li>Sharings
-                            
-                            
-                                @{ 
-                                    int countList;
-                                        try
-                                        {
-                                            var postDatabaseList = (List<ArticlePost>)ViewData["postDatabase"];
-
-                                        //    countList = postDatabaseList.Count();
-
-                                                <strong>@countList</strong>                                       
-                                        }
-                                            catch(Exception ex)
-                                        {
-                                        
-                                        }
-                                }
-                                    
-						    
+						<li>Sharings                            
+                            <strong>@Model.SharingsCount</strong>                                       						    
 						</li>
 
                         <li>
                             Comments
-                         
-                               
                             <strong>0</strong>
-
                         </li>
 
                         <li>
                             Followers
-
-                        @{
-                            try
-                            {
-                            ProfileBusiness _profileBusiness = new ProfileBusiness();
-                            int _followProfileId = _profileBusiness.getProfileId((int)Session["userId"]);
-                            List<int> _followerUserIdList = _profileBusiness.getAllFollowerByProfileId(_followProfileId);
-                          //  int _countfollowerUserIdList = _followerUserIdList.Count();
-
-                         //   <strong>@_countfollowerUserIdList</strong>
-                            
-                            }
-                            catch(Exception)
-                            {                           
-                                <strong>0</strong>						    
-                            }
-						
-                        }
+                            <strong>@Model.FollowersCount</strong>
                         </li>
 					</ul>
 				</div>
@@ -162,11 +114,11 @@
 		</section>
         <br/>
         <section id="partialarticle">
-            @Html.Partial("PartialShareArticle")
+            @*Html.Partial("PartialShareArticle")
         </section>
         <br/>
         <section id="partialprofile">
-            @Html.Partial("PartialProfile")
+            @Html.Partial("PartialProfile")*@
         </section>
 	</div>
     

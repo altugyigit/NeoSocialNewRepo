@@ -44,6 +44,5 @@ C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Datab
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\bin\Debug\EntityFramework.xml
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\obj\Debug\NeoSocial.Database.csprojResolveAssemblyReference.cache
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\obj\Debug\NeoSocial.Database.dll
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Database\obj\Debug\NeoSocial.Database.pdb

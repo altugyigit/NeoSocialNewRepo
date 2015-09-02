@@ -1,4 +1,4 @@
-﻿@model NeoSocial.ViewModels.ViewModel
+﻿@model NeoSocial.ViewModels.LoginModel
 @{
     Layout = "~/Views/Shared/_LayoutLogin.cshtml";
     ViewBag.Title = "Login";
@@ -17,12 +17,12 @@
             {
                 <div class="login-form">
 				<div class="control-group">
-				@Html.TextBoxFor(a => a.login.UserName, new {id = "login-name", @class = "login-field", @required = "required", @maxlength="15"})
+				@Html.TextBoxFor(a => a.UserName, new {id = "login-name", @class = "login-field", @required = "required", @maxlength="15"})
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 
 				<div class="control-group">
-				@Html.TextBoxFor(a => a.login.UserPassword, new {id = "login-pass", @class = "login-field", @required = "required", type="password"})
+				@Html.TextBoxFor(a => a.UserPassword, new {id = "login-pass", @class = "login-field", @required = "required", type="password"})
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
                 <br />          

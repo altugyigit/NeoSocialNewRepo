@@ -2,9 +2,8 @@
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
     ViewBag.Title = "Profile";
 }
-@using NeoSocial.Database.Models;
-@using NeoSocial.Business;
-@using NeoSocial.ViewModels;
+
+@model NeoSocial.ViewModels.ProfileModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@
 		<div id="menu">
             @Html.ActionLink("Main Page", "MainPage", "Main",null, new { @class="btn" })
             @Html.ActionLink("Share Article","Profile", "Profile",null, new { @class="btn" })     
-            @Html.ActionLink("Log Out", "LogOut", "User", null, new { @class="btn" })  
+            @Html.ActionLink("Log Out", "LogOut", "User", null, new { @class="btn" })      
         </div>
 	</header>
 
@@ -29,59 +28,34 @@
 		<section id="left">
 			<div id="userStats" class="clearfix">
 				<div class="pic">
-					<a href="#"><img src=@ViewData["pathImage"] width="150" height="150" /></a>
+					<a href="Icon"><img src=@Model.IconUrl width="150" height="150" /></a>
 				</div>
-				@{ 
-                    ProfileBusiness _profileBusiness = new ProfileBusiness();
-                    ViewModel _viewModel = new ViewModel();
-                    
-                    
-                    _viewModel.follower.UserID = (int)Session["userId"];
-                    _viewModel.follower.ProfileID = (int)ViewData["followProfileId"];
+				
+				<div class="data">
 
-                    
-                    <div class="data">
-                    @if (_profileBusiness.checkFollower(_viewModel.follower) != -1) 
-                    {
-                        <h1>@ViewData["registerName"] @ViewData["registerSurname"] - @Html.ActionLink("Unfollow","Unfollow",null,new {@class="btnUnfollow"})</h1>
-                    }
-                    else
-                    {
-                        <h1>@ViewData["registerName"] @ViewData["registerSurname"] - @Html.ActionLink("Follow Me","FollowMe",null,new {@class="btnFollow"})</h1>
-                    }
+					<h1>@Model.Name @Model.Surname</h1>
+					<h3>@Model.CountryName</h3>
 
-					<h3>EDİRNE</h3>
-					<div class="socialMediaLinks">
+                    <div class="socialMediaLinks">
 						
 					</div>
 					<div class="sep"></div>
 					<ul class="numbers clearfix">
-						<li>Sharings
-
-                                @{ 
-                                    int countList;
-                                        try
-                                        {
-                                            var postDatabaseList = (List<ArticlePost>)ViewData["postDatabase"];
-
-                                     //       countList = postDatabaseList.Count();
-
-                                                <strong>@countList</strong>                                       
-                                        }
-                                            catch(Exception ex)
-                                        {
-                                        
-                                        }
-                                }
-                                    
-						    
+						<li>Sharings                            
+                            <strong>@Model.SharingsCount</strong>                                       						    
 						</li>
-						<li>Comments<strong>0</strong></li>
-						<li>Followers<strong>0</strong></li>
+
+                        <li>
+                            Comments
+                            <strong>0</strong>
+                        </li>
+
+                        <li>
+                            Followers
+                            <strong>@Model.FollowersCount</strong>
+                        </li>
 					</ul>
 				</div>
-                }
-        
 			</div>
 		</section>
 		
@@ -139,12 +113,10 @@
                 </div>
 		</section>
         <br/>
-        <section id="partialarticle">
-            @Html.Partial("PartialShareArticle")
-        </section>
+            @*
         <br/>
         <section id="partialprofile">
-            @Html.Partial("PartialProfile")
+            @Html.Partial("PartialProfile")*@
         </section>
 	</div>
     

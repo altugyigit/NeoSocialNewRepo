@@ -51,10 +51,10 @@ namespace NeoSocial.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(ViewModel model)
+        public ActionResult Register(string test)
         {
            
-            
+            /*
 
             dt = Convert.ToDateTime(model.register.BirthDate);
            
@@ -87,7 +87,7 @@ namespace NeoSocial.Controllers
             
             }
 
-            ViewData["country"] = _countryBusiness.getAllCountry();
+            ViewData["country"] = _countryBusiness.getAllCountry();*/
             return View();
         }
        

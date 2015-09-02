@@ -42,6 +42,7 @@ C:\Users\Mert\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin
 C:\Users\Mert\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.csprojResolveAssemblyReference.cache
 C:\Users\Mert\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.dll
 C:\Users\Mert\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.pdb
+C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.csprojResolveAssemblyReference.cache
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\NeoSocial.Business.dll.config
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\NeoSocial.Business.dll
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\NeoSocial.Business.pdb
@@ -51,6 +52,5 @@ C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Busin
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\NeoSocial.Database.pdb
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\EntityFramework.xml
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.csprojResolveAssemblyReference.cache
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.dll
 C:\Users\Neo_Edirne1\Documents\GitHub\NeoSocialNewRepo\NeoSocial\NeoSocial.Business\obj\Debug\NeoSocial.Business.pdb

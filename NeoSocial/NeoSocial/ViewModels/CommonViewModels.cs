@@ -7,6 +7,7 @@ using NeoSocial.Database.Repository;
 using NeoSocial.Database.IUnitOfWork;
 using NeoSocial.Business;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace NeoSocial.ViewModels
 {
@@ -40,11 +41,27 @@ namespace NeoSocial.ViewModels
         public short Gender { get; set; }
         public string CountryName { get; set; }
         public string IconUrl { get; set; }
+        public int SharingsCount { get; set; }
+        public int CommentsCount { get; set; }
+        public int FollowersCount { get; set; }        
     }
 
-    public class MailV
+    public class MailModel
     {
-        public Mail mail { get; set; }
+        [EmailAddress]
+        public string FromEmail { get; set; }
+        [Required, EmailAddress]
+        public string ToEmail { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
+    }
+
+    public class LoginModel
+    {
+        public int UserID { get; set; }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
+        public int UserRegisterID { get; set; }
     }
 
 

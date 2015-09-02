@@ -52,7 +52,7 @@ namespace NeoSocial.App_Start
             container.RegisterType<IPostContext, PostContext>();
             container.RegisterType<ICountryContext, CountryContext>();
             container.RegisterType<IUserContext, UserContext>();
-            
+            container.RegisterType<IPostModel, PostModel>();
         }
     }
 }

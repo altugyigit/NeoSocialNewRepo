@@ -14,19 +14,19 @@ namespace NeoSocial.Business
     public class PostBusiness: IPostBusiness
     {
         PostContext _postContext;
-
+        
 
         public PostBusiness()
         {
 
             _postContext = new PostContext(new DbContextFactory());
-
         }
 
-        public bool insertArticlePost(ArticlePost articlePost)
+        public bool insertArticlePost(ArticlePost _articlePost)
         {
             try
             {
+
                 _postContext.ArticlePostRepository.Create(articlePost);
                 _postContext.Commit();
 

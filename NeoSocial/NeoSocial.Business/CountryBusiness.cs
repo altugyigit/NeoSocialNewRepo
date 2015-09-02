@@ -35,6 +35,10 @@ namespace NeoSocial.Business
         
         }
 
+        public string getCountryNameById(int countryId)
+        {
+            return _countryContext.CountryRepository.Get(a => a.CountryID == countryId).First().CountryName;
+        }
 
     }
 }

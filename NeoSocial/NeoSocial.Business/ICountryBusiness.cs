@@ -11,6 +11,8 @@ namespace NeoSocial.Business
 
 
         List<Country> getAllCountry();
+
+        string getCountryById(int countryId);
     
     }
 }

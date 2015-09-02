@@ -2,8 +2,7 @@
     Layout = "~/Views/Shared/_LayoutProfile.cshtml";
     ViewBag.Title = "Profile";
 }
-@using NeoSocial.Database.Models;
-@using NeoSocial.Business;
+
 @using NeoSocial.ViewModels;
 
 <!DOCTYPE html>
@@ -34,14 +33,7 @@
 				
 				<div class="data">
                     @{
-                        LoginBusiness _loginBusiness = new LoginBusiness();
-                      //  int _registerId = _loginBusiness.findRegisterIdByUserId((int)Session["userId"]);
-                        
-                        RegisterBusiness _registerBusiness = new RegisterBusiness();
-                        
-                        ViewModel _viewModel = new ViewModel();
-                      //  _viewModel.register = _registerBusiness.findById(_registerId);
-                        
+                      
                         
 					<h1>@_viewModel.register.Name @_viewModel.register.Surname</h1>
 					<h3>EDİRNE</h3>
@@ -62,7 +54,7 @@
 
                                         //    countList = postDatabaseList.Count();
 
-                                                <strong>@countList</strong>                                       
+                                                <strong></strong>                                       
                                         }
                                             catch(Exception ex)
                                         {

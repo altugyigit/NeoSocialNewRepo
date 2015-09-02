@@ -1,4 +1,5 @@
-﻿@model NeoSocial.ViewModels.ViewModel
+﻿@model NeoSocial.ViewModels.ArticleDbWebModel
+
 @{
     
     Layout = null;
@@ -17,9 +18,9 @@
         @using(Html.BeginForm("PartialShareArticle", "Profile", FormMethod.Post))
         {
         
-            @Html.TextBoxFor(a => a.article.PostHeader, new { @maxlength="100", @class="txtShare",  @required = "required", placeholder="Header"})
+            @Html.TextBoxFor(a => a.articlePostDatabaseModel.PostHeader, new { @maxlength="100", @class="txtShare",  @required = "required", placeholder="Header"})
             <br />
-            @Html.TextAreaFor(a => a.article.PostContent, new {@maxlength="3000", @class="txtShareArea",  @required = "required", placeholder="Type ..." })
+            @Html.TextAreaFor(a => a.articlePostDatabaseModel.PostContent, new {@maxlength="3000", @class="txtShareArea",  @required = "required", placeholder="Type ..." })
             <br />
             
             <input type="submit" class="btnShare" value="Share"/>

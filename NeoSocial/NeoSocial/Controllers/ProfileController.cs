@@ -11,34 +11,27 @@ namespace NeoSocial.Controllers
     [Authorize]
     public class ProfileController : Controller
     {
-        ViewModel _viewModel;
         IPostBusiness _postBusiness;
         IIconBusiness _iconBusiness;
         IProfileBusiness _profileBusiness;
         ILoginBusiness _loginBusiness;
         IRegisterBusiness _registerBusiness;
-        UserProfile _userProfile;
-        UserRegister _userRegister;
-        static int _userId;
+        ICountryBusiness _countryBusiness;
+        ProfileModel _profileModel;
+
         int _iconId;
         static int _followMeProfileId;
 
-        public ProfileController(
-            ViewModel viewModel,
-            UserProfile userProfile,
-            UserRegister userRegister) {
-
+        public ProfileController(ProfileModel profileModel)
+        {
+                _countryBusiness = DependencyResolver.Current.GetService<ICountryBusiness>();
                 _postBusiness = DependencyResolver.Current.GetService<IPostBusiness>();
                 _iconBusiness = DependencyResolver.Current.GetService<IIconBusiness>();
                 _profileBusiness = DependencyResolver.Current.GetService<IProfileBusiness>();
                 _loginBusiness = DependencyResolver.Current.GetService<ILoginBusiness>();
                 _registerBusiness = DependencyResolver.Current.GetService<IRegisterBusiness>();
-            _viewModel = viewModel;
-            _userProfile = userProfile;
-            _userRegister = userRegister;
-        
-        
-        
+
+                _profileModel = profileModel;
         }
 
         //
@@ -46,22 +39,16 @@ namespace NeoSocial.Controllers
         [Authorize]
         public ActionResult Profile()
         {
-             _userId = -1;
-            
-           
+            _profileModel.CurrentUserID = (int)Session["userId"];
+            _profileModel.UserRegisterID = _loginBusiness.findRegisterIdByUserId(_profileModel.CurrentUserID);
 
-            try
-            {
-                _userId = (int)Session["UserId"];
-                _iconId = (int)_profileBusiness.getProfileInfo(_userId).IconID;
+            _profileModel.Name = _registerBusiness.findById(_profileModel.UserRegisterID).Name;
+            _profileModel.Surname = _registerBusiness.findById(_profileModel.UserRegisterID).Surname;
+            _profileModel.CountryName = _countryBusiness.getCountryById((int)(_registerBusiness.findById(_profileModel.UserRegisterID).CountryID));
+                
+            _profileModel.IconUrl = _iconBusiness.getIconUrl((int)_profileBusiness.getProfileInfo(_profileModel.CurrentUserID).IconID);
 
-                ViewData["pathImage"] = _iconBusiness.getIconUrl(_iconId);
-                ViewData["postDatabase"] = _postBusiness.getUserArticlePost(_userId);
-            }
-            catch(Exception ex)
-            {
-            }
-            return View();
+            return View(_profileModel);
         }
         [Authorize]
         [HttpGet]
@@ -69,21 +56,19 @@ namespace NeoSocial.Controllers
         {
             return View();
         }
+
         [Authorize]
         [HttpPost]
-        public ActionResult PartialShareArticle(ViewModel model)
+        public ActionResult PartialShareArticle(ArticleDbWebModel articleDbWebModel)
         {
-          
+            articleDbWebModel.articlePostDatabaseModel.PostDate = DateTime.Today.ToShortDateString(); //Current Date
 
-            string currentDate = DateTime.Today.ToShortDateString();
-            model.article.PostDate = currentDate;
+            articleDbWebModel.articlePostDatabaseModel.PostOwnerID = _profileModel.CurrentUserID;
 
-            model.article.PostOwnerID = (int)Session["UserId"];
+            articleDbWebModel.articlePostDatabaseModel.PostLikeCount = 0;
+            articleDbWebModel.articlePostDatabaseModel.PostCommentID = 0;
 
-            model.article.PostLikeCount = 0;
-            model.article.PostCommentID = 0;
-
-            _postBusiness.insertArticlePost(model.article);
+            _postBusiness.insertArticlePost(articleDbWebModel.articlePostDatabaseModel);
 
             return Redirect("~/Profile/Profile");
             

@@ -13,8 +13,8 @@ namespace NeoSocial.Business
         int verifyUser(UserLogin userLogin);
         void addUser(UserLogin userLogin);
         List<UserLogin> findUser(UserLogin userLogin);
-        int findUserIdByName(string userName,UserLogin userLogin);
-        int findRegisterIdByUserId(int userId,UserLogin userLogin);
+        int findUserIdByName(string userName);
+        int findRegisterIdByUserId(int userId);
 
     }
 }

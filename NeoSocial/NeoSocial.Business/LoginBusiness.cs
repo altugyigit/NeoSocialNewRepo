@@ -59,24 +59,16 @@ namespace NeoSocial.Business
         
         }
 
-     public int findUserIdByName(string userName,UserLogin userLogin)
+     public int findUserIdByName(string userName)
      {
-         userLogin = new UserLogin();
 
-         userLogin = _userContext.UserLoginRepository.Get(x => x.UserName == userName).First();
-
-         return userLogin.UserID;
+         return _userContext.UserLoginRepository.Get(x => x.UserName == userName).First().UserID; 
      }
 
-  public   int findRegisterIdByUserId(int userId,UserLogin userLogin) {
+  public int findRegisterIdByUserId(int userId) {
 
-      userLogin = new UserLogin();
+      return _userContext.UserLoginRepository.Get(x => x.UserID == userId).First().UserRegisterID;
 
-      userLogin = _userContext.UserLoginRepository.Get(x => x.UserID == userId).First();
-
-      return userLogin.UserRegisterID;
-     
-     
      }
     }
 }

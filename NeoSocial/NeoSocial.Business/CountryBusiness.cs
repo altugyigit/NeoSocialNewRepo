@@ -19,6 +19,7 @@ namespace NeoSocial.Business
 
         CountryContext _countryContext;
         List<Country> _countryList;
+        
 
         public CountryBusiness() {
 
@@ -31,8 +32,11 @@ namespace NeoSocial.Business
 
             _countryList = _countryContext.CountryRepository.Get().OrderBy(x => x.CountryID).ToList();
             return _countryList;
-        
-        
+        }
+
+        public string getCountryNameById(int countryId)
+        {
+            return _countryContext.CountryRepository.Get(a => a.CountryID == countryId).First().CountryName;
         }
 
 

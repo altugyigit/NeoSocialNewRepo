@@ -9,6 +9,7 @@ using System.Web.Security;
 using NeoSocial.ViewModels;
 
 namespace NeoSocial.Controllers
+{
     [Authorize]
     public class MainController : Controller
     {

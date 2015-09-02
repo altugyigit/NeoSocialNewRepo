@@ -7,47 +7,34 @@
 
 @{ 
     
-    var postDatabaseList = (List<ArticlePost>)ViewData["postDatabase"];
 
-    int countList = postDatabaseList.Count;
-    
-    if(countList == 0)
+    if(Model.Count == 0)
     {
         // http://www.icons-land.com
         <img alt="Unfortunatly" src="~/Content/Image/sad.png" style="float:left; padding-right:8px;" /> 
-         <h3>Unfortunatially, there is nothing to show.</h3>
     }
     else
     {
      
-        foreach(var post in postDatabaseList)
+        foreach(var post in Model)
         {
-            int _postOwnerUserId = post.PostOwnerID;
-            ProfileBusiness _profileBusiness = new ProfileBusiness();
-            UserProfile _userProfile = _profileBusiness.getProfileInfo(_postOwnerUserId);
-
-            int _userID = (int)_userProfile.UserID;
-            int _registerId = (int)_userProfile.UserRegisterID;
-            int _iconId = (int)_userProfile.IconID;
-            
-            RegisterBusiness _registerBusiness = new RegisterBusiness();
-            UserRegister _userRegister = _registerBusiness.findById(_registerId);
-
-            string _userRegisterName = _userRegister.Name;
-            string _userRegisterSurname = _userRegister.Surname;
-
-            IconBusiness _iconBusiness = new IconBusiness();
-            ViewData["pathImage"] = _iconBusiness.getIconUrl(_iconId);
-            
-            <div class="postTemplate">
-                <img id="avatarImg" src=@ViewData["pathImage"] />
+           
+            <div class="postTemplate">                
+                <img id="avatarImg" src=@post.IconUrl />
                 <div class="postContent">
                     @*AYNI KİŞİ İSE PROFILE' a yönlen **@
-                    @if (_postOwnerUserId != (int)Session["userId"] ){ @Html.ActionLink(_userRegisterName + " " + _userRegisterSurname, "OtherProfile", "Profile", new { userId = _userID }, new { @id = "postOwnerText", @readonly = true })} else{@Html.ActionLink(_userRegisterName + " " + _userRegisterSurname, "Profile", "Profile", null, new { @id = "postOwnerText", @readonly = true })}
+                    
+                    @if (post.UserID != (int)TempData["currentUserId"])
+                    { 
+                        @Html.ActionLink(post.Name + " " + post.Surname, "OtherProfile", "Profile", new { userId = post.PostOwnerID }, new { @id = "postOwnerText", @readonly = true });
+                    } 
+                    else
+                    {
+                        @Html.ActionLink(post.Name + " " + post.Surname, "Profile", "Profile", null, new { @id = "postOwnerText", @readonly = true });
+                    }
 
                     <h2 id="postHeaderText">@post.PostHeader - @post.PostDate</h2>                    
-                    @Html.TextArea("txtpostContentTextArea",post.PostContent,2,2 , new {@id="postContentTextArea", @readonly = true})
-                    <br />       
+                    @Html.TextArea("txtpostContentTextArea",post.PostContent,2,2 , new {@id="postContentTextArea", @readonly = true})        <br />       
                     <h4 class="likecomclass"><!--http://www.iconsmind.com --><img id="likeIcon" src="/Content/Image/like.png" /> Like : @post.PostLikeCount || <!-- http://icons8.com --><img id="commentIcon" src="/Content/Image/comment.png" /> Comment : @post.PostCommentID</h4>     
                 </div>  
             </div>

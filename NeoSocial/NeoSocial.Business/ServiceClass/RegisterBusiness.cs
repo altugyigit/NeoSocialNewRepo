@@ -49,11 +49,9 @@ namespace NeoSocial.Business
       
       }
 
-      public List<UserRegister> findID(UserRegister userRegister) {
+      public int findRegisterIDByMail(string mail) {
 
-          string mail=userRegister.Email;
-
-       return _userContext.UserRegisterRepository.Get(x => x.Email == mail).ToList();
+       return _userContext.UserRegisterRepository.Get(x => x.Email == mail).First().UserRegisterID;
 
       
       }

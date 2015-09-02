@@ -13,7 +13,7 @@ namespace NeoSocial.Business
         UserRegister findById(int registerId);
         void addUser(UserRegister userRegister);
         bool checkUser(UserLogin userLogin);
-        List<UserRegister> findID(UserRegister userRegister);
+        int findRegisterIDByMail(string mail);
     }
 
 }

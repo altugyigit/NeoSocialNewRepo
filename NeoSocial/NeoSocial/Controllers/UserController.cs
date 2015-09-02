@@ -21,21 +21,14 @@ namespace NeoSocial.Controllers
         IRegisterBusiness _registerBusiness;
         IMailBusiness _mailBusiness;
 
-        UserRegister _userRegister;
-        UserLogin _userLogin;
+       
 
-        List<UserRegister> list;
-        List<UserLogin> list2;
-
-        public UserController(
-            UserRegister userRegister,
-            UserLogin userLogin) {
+        public UserController() {
 
                 _loginBusiness = DependencyResolver.Current.GetService<ILoginBusiness>();
                 _registerBusiness = DependencyResolver.Current.GetService<IRegisterBusiness>();
                 _mailBusiness = DependencyResolver.Current.GetService<IMailBusiness>();
-                _userRegister = userRegister;
-                _userLogin = userLogin;
+                
         
         }
 
@@ -99,18 +92,18 @@ namespace NeoSocial.Controllers
         [HttpPost]
         public ActionResult ForgotPassword(MailModel mailModel)
         {
-           /*
-           _userRegister.Email=mail.ToEmail;
 
-          list=  _registerBusiness.findID(_userRegister);
+            int registerId = _registerBusiness.findRegisterIDByMail(mailModel.ToEmail);
 
-        list2= _mailBusiness.findPassword(list[0].UserRegisterID);
+       
 
-        mail.FromEmail = "mertkozcan@outlook.com";
-        mail.Subject = "Şifre";
-        mail.Message = list2[0].UserPassword;
+       
 
-        _mailBusiness.sendMail(mail);*/
+        mailModel.FromEmail = "mertkozcan@outlook.com";
+        mailModel.Subject = "Şifre";
+        mailModel.Message = _mailBusiness.findPassword(registerId);
+
+        _mailBusiness.sendMail(mailModel.FromEmail,mailModel.ToEmail,mailModel.Subject,mailModel.Message);
 
             return View();
         }

@@ -10,8 +10,8 @@ namespace NeoSocial.Business
   public interface IMailBusiness
     {
 
-        void sendMail(Mail mail);
-        List<UserLogin> findPassword(int registerID);
+      void sendMail(string fromMail, string toMail, string subject, string message);
+        string findPassword(int registerID);
 
     }
 }

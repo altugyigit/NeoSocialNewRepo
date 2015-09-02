@@ -26,17 +26,17 @@ namespace NeoSocial.Business
         
         }
 
-        public List<UserLogin> findPassword(int registerID) {
+        public string findPassword(int registerID) {
 
-            int id = registerID;
+            
 
-             return _userContext.UserLoginRepository.Get(x => x.UserRegisterID == id).ToList();
+             return _userContext.UserLoginRepository.Get(x => x.UserRegisterID ==registerID).First().UserPassword;
 
             
         
         }
 
-        public void sendMail(Mail mail) {
+        public void sendMail(string fromMail,string toMail,string subject,string message) {
 
             SmtpClient client = new SmtpClient();
             client.Port = 587;
@@ -47,7 +47,7 @@ namespace NeoSocial.Business
             client.UseDefaultCredentials = false;
             client.Credentials = new System.Net.NetworkCredential("mertkozcan@outlook.com", "");
 
-            MailMessage mm = new MailMessage(mail.FromEmail, mail.ToEmail, mail.Subject, mail.Message);
+            MailMessage mm = new MailMessage(fromMail, toMail,subject, message);
             mm.BodyEncoding = UTF8Encoding.UTF8;
             mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 

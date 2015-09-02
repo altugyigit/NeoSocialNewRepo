@@ -34,8 +34,7 @@ namespace NeoSocial.Controllers
                 _loginBusiness = DependencyResolver.Current.GetService<ILoginBusiness>();
                 _profileBusiness = DependencyResolver.Current.GetService<IProfileBusiness>();
 
-        
-        
+
         }
 
         [AllowAnonymous]
@@ -51,15 +50,11 @@ namespace NeoSocial.Controllers
         [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(string test)
+        public ActionResult Register(RegisterModel registerModel)
         {
-           
+          
+            registerModel.BirthDate = Convert.ToDateTime(registerModel.BirthDate).ToShortDateString();
             /*
-
-            dt = Convert.ToDateTime(model.register.BirthDate);
-           
-            model.register.BirthDate = dt.ToShortDateString();
-
             if (!_registerBusiness.checkUser(model.login))//Kullanıcı yoksa ekle.
             {
                 _registerBusiness.addUser(model.register);
@@ -88,7 +83,6 @@ namespace NeoSocial.Controllers
             }
 
             ViewData["country"] = _countryBusiness.getAllCountry();*/
-            return View();
         }
        
 

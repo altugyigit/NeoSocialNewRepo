@@ -64,5 +64,15 @@ namespace NeoSocial.ViewModels
         public int UserRegisterID { get; set; }
     }
 
+    public class RegisterModel
+    {
+        public int UserRegisterID { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string BirthDate { get; set; }
+        public string Email { get; set; }
+        public short Gender { get; set; }
+        public int CountryID { get; set; }
+    }
 
 }

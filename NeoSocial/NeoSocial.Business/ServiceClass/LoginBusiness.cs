@@ -15,6 +15,7 @@ namespace NeoSocial.Business
 {
 
         UserContext _userContext;
+        UserLogin _userLogin;
        
 
         public LoginBusiness() 
@@ -22,9 +23,15 @@ namespace NeoSocial.Business
             _userContext = new UserContext(new DbContextFactory());
         }
 
-        public   void addUser(UserLogin userLogin)      
+        public   void addUser(string userName,string userPassword,int userRegisterID)      
         {
-            _userContext.UserLoginRepository.Create(userLogin);
+            _userLogin = new UserLogin();
+
+            _userLogin.UserName = userName;
+            _userLogin.UserPassword = userPassword;
+            _userLogin.UserRegisterID = userRegisterID;
+
+            _userContext.UserLoginRepository.Create(_userLogin);
             _userContext.Commit();
         }
 

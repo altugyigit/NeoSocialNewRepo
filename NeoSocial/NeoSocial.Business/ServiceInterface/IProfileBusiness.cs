@@ -11,7 +11,7 @@ namespace NeoSocial.Business
     {
         int getProfileId(int userId);
         UserProfile getProfileInfo(int userId);
-        void addProfile(UserProfile userProfile);
+        void addProfile(int userId, int userRegisterId);
         void updateIcon(UserProfile userProfile);
         bool insertFollower(Follower follower);
         int checkFollower(Follower follower);

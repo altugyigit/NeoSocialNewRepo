@@ -32,12 +32,10 @@ namespace NeoSocial.Business
 
       }
 
-      public bool checkUser(UserLogin userLogin) {
+      public bool checkUser(string mail) {
 
-          string _userNameText = userLogin.UserName;
-          string _userPasswordText = userLogin.UserPassword;
-
-          if (_userContext.UserLoginRepository.Find(a => a.UserName == _userNameText) != null && !_userNameText.Equals(_userPasswordText))
+         
+          if (_userContext.UserRegisterRepository.Find(addUser=>addUser.Email==mail) != null )
           {
               return true;
           }

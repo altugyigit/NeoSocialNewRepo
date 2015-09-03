@@ -45,7 +45,7 @@ namespace NeoSocial.Business
             client.Timeout = 10000;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("mertkozcan@outlook.com", "");
+            client.Credentials = new System.Net.NetworkCredential("mertkozcan@outlook.com", "mn2ef6rs0tu7");
 
             MailMessage mm = new MailMessage(fromMail, toMail,subject, message);
             mm.BodyEncoding = UTF8Encoding.UTF8;

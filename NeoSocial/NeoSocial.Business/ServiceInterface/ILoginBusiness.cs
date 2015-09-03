@@ -11,7 +11,7 @@ namespace NeoSocial.Business
     {
 
        int verifyUser(string userName, string userPassword);
-        void addUser(UserLogin userLogin);
+       void addUser(string userName, string userPassword, int userRegisterID);
         List<UserLogin> findUser(UserLogin userLogin);
         int findUserIdByName(string userName);
         int findRegisterIdByUserId(int userId);

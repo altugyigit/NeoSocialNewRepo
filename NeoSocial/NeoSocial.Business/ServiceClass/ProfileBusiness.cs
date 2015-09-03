@@ -14,11 +14,12 @@ namespace NeoSocial.Business
     public class ProfileBusiness: IProfileBusiness
     {
         UserContext _userContext;
-        
+        UserProfile _userProfile;
 
         public ProfileBusiness()
         {
             _userContext = new UserContext(new DbContextFactory());
+            _userProfile = new UserProfile();
         }
 
         public UserProfile getProfileInfo(int userId)
@@ -35,9 +36,12 @@ namespace NeoSocial.Business
            
         }
 
-     public   void addProfile(UserProfile userProfile) {
+     public   void addProfile(int userId, int userRegisterId) {
 
-         _userContext.UserProfileRepository.Create(userProfile);
+         _userProfile.UserID = userId;
+         _userProfile.UserRegisterID = userRegisterId;
+
+         _userContext.UserProfileRepository.Create(_userProfile);
          _userContext.Commit();
         
         }

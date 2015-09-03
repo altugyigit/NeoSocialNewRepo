@@ -95,10 +95,6 @@ namespace NeoSocial.Controllers
 
             int registerId = _registerBusiness.findRegisterIDByMail(mailModel.ToEmail);
 
-       
-
-       
-
         mailModel.FromEmail = "mertkozcan@outlook.com";
         mailModel.Subject = "Şifre";
         mailModel.Message = _mailBusiness.findPassword(registerId);
